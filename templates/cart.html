@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+{% include 'navbar.html' %}
+    <div class="container">
+        <h1 class="my-4">Your Cart</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Here is where your loop would start -->
+                {% for item in cart %}
+                    <tr>
+                        <td>{{item.prod_name}}</td>
+                        <td>{{item.prod_price}}</td>
+                    </tr>
+                {% endfor %}
+                <!-- Here is where your loop would end -->
+            </tbody>
+        </table>
+        <!-- Total Price placeholder -->
+        <h3 id="totalPrice">{{total}}</h3>
+        <!-- Buy Now Button -->
+        <a href="{{url_for('buy_now', total=total)}}" class="btn btn-primary">Buy Now</a>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+

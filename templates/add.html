@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Add Product</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container mt-5">
+        <h1>Add Product</h1>
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="product-name">Product Name</label>
+                <input type="text" class="form-control" id="product-name" placeholder="Enter product name" required name="product_name">
+            </div>
+            <div class="form-group">
+                <label for="product-price">Price</label>
+                <input type="number" class="form-control" id="product-price" placeholder="Enter price" required name="product_price" step="0.01">
+            </div>
+            <div class="form-group">
+                <label for="product-image-url">Image URL</label>
+                <input type="text" class="form-control" id="product-image-url" placeholder="Enter image URL" required name="img_url">
+            </div>
+            <div class="form-group">
+                <label for="product-image-url">Product ID</label>
+                <input type="text" class="form-control" id="Product-Id" placeholder="Enter image URL" required name="product_id">
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

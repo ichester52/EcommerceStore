@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gadget Universe</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+{% include 'navbar.html' %}
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to Gadget Universe!</h1>
+            <p class="lead">Your one-stop shop for the best and latest gadgets.</p>
+            <hr class="my-4">
+            <p>Browse our products and find your perfect gadget.</p>
+        </div>
+    </div>
+
+    <!-- Previous code up until the end of the jumbotron -->
+
+<!-- Products -->
+    {% if current_user.is_authenticated %}
+<div class="container">
+    <div class="row">
+        <!-- This is a product template that your loop will replicate -->
+        <!-- Start Product Template -->
+        {% for product in products %}
+        <div class="col-md-4">
+            <a href="{{url_for('product', prod_id=product.id)}}">
+    <div class="card mb-4 shadow-sm">
+        <img class="bd-placeholder-img card-img-top" src="{{product.image_url}}" alt="Product Image">
+        <div class="card-body">
+            <p class="card-text">{{product.prod_name}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">${{product.prod_price}}</small>
+            </div>
+        </div>
+    </div>
+</a>
+
+        </div>
+        {% endfor %}
+        <!-- End Product Template -->
+        <!-- You can repeat the product template as many times as needed -->
+    </div>
+</div>
+    {% endif %}
+
+<!-- Rest of the HTML code -->
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
